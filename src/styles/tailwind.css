@@ -1,0 +1,215 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn {
+      @apply bg-indigo-600 text-white font-bold py-2 px-4 rounded hover:bg-indigo-700;
+  }
+
+  .screenshot-frame {
+      @apply border-4 border-gray-300 rounded-lg shadow-lg;
+  }
+}
+
+/* Custom styles can be added below */
+body {
+    @apply bg-white text-gray-800;
+    background: radial-gradient(ellipse at 60% 40%, #232946 0%, #181c2f 80%, #18181b 100%);
+    background-attachment: fixed;
+    transition: background 0.5s;
+}
+
+body.light {
+  background: radial-gradient(ellipse at 60% 40%, rgba(250,204,21,0.12) 0%, rgba(139,92,246,0.10) 60%, #fff 100%);
+}
+
+body.dark {
+  background: radial-gradient(ellipse at 60% 40%, rgba(30,41,59,0.92) 0%, rgba(139,92,246,0.18) 60%, #18181b 100%);
+}
+
+h1, h2, h3 {
+    @apply font-serif;
+}
+
+a {
+    @apply text-blue-600 hover:text-blue-800;
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 1s ease both;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+  .animate-parallax {
+    animation: parallax 20s linear infinite alternate;
+  }
+  @keyframes parallax {
+    from { transform: translateY(-10%) scale(1) }
+    to   { transform: translateY(10%) scale(1.05) }
+  }
+  .animate-delay-0 { animation-delay: 0s; }
+  .animate-delay-100 { animation-delay: 0.1s; }
+  .animate-delay-200 { animation-delay: 0.2s; }
+  .animate-delay-300 { animation-delay: 0.3s; }
+  .animate-delay-400 { animation-delay: 0.4s; }
+}
+
+/* Fade-in animation for verse and heading */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(24px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+.animate-fade-in {
+  animation: fade-in 0.7s cubic-bezier(.4,0,.2,1) both;
+}
+
+/* Text pop animation for verse text */
+@keyframes text-pop {
+  0% { transform: scale(0.95); opacity: 0.7;}
+  60% { transform: scale(1.05); opacity: 1;}
+  100% { transform: scale(1); opacity: 1;}
+}
+.animate-text-pop {
+  animation: text-pop 0.5s cubic-bezier(.4,0,.2,1) both;
+}
+
+/* Feather float animation */
+@keyframes feather-float {
+  0% { transform: translateY(0) rotate(-2deg);}
+  50% { transform: translateY(-12px) rotate(2deg);}
+  100% { transform: translateY(0) rotate(-2deg);}
+}
+
+/* Button glow animation */
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(250,204,21,0.5);}
+  50% { box-shadow: 0 0 16px 4px rgba(250,204,21,0.7);}
+}
+
+.animate-feather-float {
+  animation: feather-float 3s ease-in-out infinite;
+}
+.animate-glow {
+  animation: glow 2.5s ease-in-out infinite;
+}
+
+/* Animated radial gradient overlay */
+.bg-animated-gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 60% 40%, rgba(250,204,21,0.12) 0%, rgba(139,92,246,0.10) 60%, transparent 100%);
+  animation: gradient-move 8s ease-in-out infinite alternate;
+}
+
+@keyframes gradient-move {
+  0% { background-position: 60% 40%; }
+  100% { background-position: 40% 60%; }
+}
+
+/* Feature card entrance animation */
+@keyframes feature-card-in {
+  0% {
+    opacity: 0;
+    transform: translateY(32px) scale(0.95);
+    box-shadow: 0 0 0 0 rgba(250,204,21,0.0);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 0 24px 0 rgba(250,204,21,0.15);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    box-shadow: 0 4px 24px 0 rgba(250,204,21,0.10);
+  }
+}
+.animate-feature-card-in {
+  animation: feature-card-in 0.7s cubic-bezier(.4,0,.2,1);
+}
+
+/* Block: Global background for body and html */
+body, html {
+  background: radial-gradient(ellipse at 60% 40%, #232946 0%, #181c2f 80%, #18181b 100%);
+  background-attachment: fixed;
+  color-scheme: dark;
+  transition: background 0.5s;
+}
+
+/* Block: End of file */
+@keyframes shine {
+  0% { background-position: -200px 0; }
+  100% { background-position: 200px 0; }
+}
+.shiny-text {
+  background: linear-gradient(90deg, #FFD700 20%, #fff 40%, #FFD700 60%);
+  background-size: 200px 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 2.5s linear infinite;
+}
+.typewriter-cursor::after {
+  content: '|';
+  animation: blink 1s steps(1) infinite;
+  margin-left: 2px;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Block: Add or ensure this at the end of the file */
+
+@keyframes jump-in {
+  0% {
+    opacity: 0;
+    transform: translateY(80px) scale(0.8);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-20px) scale(1.05);
+  }
+  80% {
+    transform: translateY(10px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.animate-jump-in {
+  animation: jump-in 0.8s cubic-bezier(.4,0,.2,1);
+}
+
+/* Block: Add this to define the Merienda font utility */
+
+.font-merienda {
+  font-family: 'Merienda', cursive;
+}
+
+/* Block: Add at the end for a stronger border glow on hover */
+.hover\:border-soft-gold:hover {
+  border-color: #FFD700 !important;
+}
+
+/* Block: Add at the end of the file */
+
+@keyframes glow-infinite {
+  0%, 100% {
+    text-shadow: 0 0 8px #a78bfa, 0 0 1px #fff;
+    filter: brightness(0.9);
+  }
+  50% {
+    text-shadow: 0 0 16px #facc15, 0 0 4px #fff;
+    filter: brightness(1.08);
+  }
+}
+.animate-glow-infinite {
+  animation: glow-infinite 3s ease-in-out infinite;
+}
