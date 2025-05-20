@@ -1,4 +1,4 @@
-const { darkMode } = require('../tailwind.config');
+const { darkMode } = require('./tailwind.config');
 
 module.exports = {
   content: [
